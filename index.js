@@ -1,114 +1,61 @@
-// Task 1
+const pizzaOrders = [
+  { id: 1, type: 'pishloqli', size: 'large' },
+  { id: 2, type: 'tovuqli', size: 'medium' },
+  { id: 3, type: 'pishloqsiz', size: 'small' },
+  { id: 4, type: 'qazili', size: 'large' },
+];
 
-let son1 = parseFloat(prompt("Birinchi sonni kiriting:"));
-let son2 = parseFloat(prompt("Ikkinchi sonni kiriting:"));
+function calculatePrice(order) {
+  let basePrice = 10000;
 
-let yigindi = son1 + son2;
+  switch (order.type) {
+    case 'pishloqli':
+      basePrice += 5000;
+      break;
+    case 'pishloqsiz':
+      basePrice += 0;
+      break;
+     case 'tovuqli':
+      basePrice += 7000;
+      break;
+    case 'qazili':
+      basePrice += 10000;
+      break; 
+  }
 
-alert("Ikki sonning yig'indisi: " + yigindi);
+  switch (order.size) {
+    case 'small':
+      basePrice += 1000;
+      break;
+    case 'medium':
+      basePrice += 2000;
+      break;
+    case 'large':
+      basePrice += 3000;
+      break;
+  }
 
-
-
-// Task 2
-
-let ism = prompt("Ismingizni kiriting:");
-let familiya = prompt("Familiyangizni kiriting:");
-
-let toliqIsm = ism + " " + familiya;
-
-alert(toliqIsm);
-
-// Task 3
-
-let yosh = parseInt(prompt("Yoshingizni kiriting:"));
-
-if (yosh < 18) {
-  alert("Siz voyaga yetmagansiz.");
-} else {
-  alert("Siz voyaga yetgansiz.");
+  return basePrice;
 }
 
-// Task 4
-
-let son = parseInt(prompt("Iltimos, biror son kiriting:"));
-
-if (son % 2 === 0) {
-  alert("Kiritilgan son juft.");
-} else {
-  alert("Kiritilgan son toq.");
+function pizzaReadyCallback(order, totalPrice) {
+  console.log(`Pitsa #${order.id} (${order.type}, ${order.size}) tayyor! Narxi: ${totalPrice} so'm`);
 }
 
-//   Task 5
+function orderPizza(order, callback) {
+  console.log(`Pitsa #${order.id} (${order.type}, ${order.size}) buyurtma qilindi. Pishirish boshlandi sabr bilan kutasiz endi...`);
 
-let ball = parseInt(prompt("Imtihon boxosini kiriting (0-100 oralig'ida):"));
+  let cookTime = 2000;
 
-if (ball >= 90 && ball <= 100) {
-  alert("A");
-} else if (ball >= 80 && ball <= 89) {
-  alert("B");
-} else if (ball >= 70 && ball <= 79) {
-  alert("C");
-} else if (ball >= 60 && ball <= 69) {
-  alert("D");
-} else if (ball >= 0 && ball < 60) {
-  alert("F");
-} else {
-  alert("Noto'g'ri boxo kiritildi. Iltimos, 0 dan 100 gacha bo'lgan son kiriting.");
+  if(order.type === 'qazili') cookTime = 3000;
+  else if (order.type === 'tovuqli') cookTime = 2500;
+
+  setTimeout(() => {
+    const totalPrice = calculatePrice(order);
+    callback(order, totalPrice);
+  }, cookTime);
 }
 
-//   Task 6
-
-let tomon = parseFloat(prompt("Kvadratning tomon uzunligini kiriting (sm):"));
-
-let perimetr = 4 * tomon;
-let yuza = tomon * tomon;
-
-alert("Perimetri: " + perimetr + " sm, Yuz: " + yuza + " sm²");
-
-//   Task 7
-
-let tomon = parseFloat(prompt("Kubning tomon uzunligini kiriting (sm):"));
-
-let hajm = tomon ** 3;
-
-alert("Hajm: " + hajm + " sm³");
-
-//   Task 8
-
-let celsius = parseFloat(prompt("Haroratni Celsiusda kiriting (°C):"));
-
-let fahrenheit = (celsius * 9/5) + 32;
-
-
-alert(celsius + "°C = " + fahrenheit + "°F");
-
-//   Task 9
-
-let namlik = parseFloat(prompt("Havoning namlik foizini kiriting (%):"));
-
-if (namlik < 30) {
-  alert("Havo juda quruq.");
-} else if (namlik > 30 && namlik < 60) {
-  alert("Havo qulay.");
-} else if (namlik === 30 || namlik === 60) {
-  alert("Havo qulay.");
-} else if (namlik > 60) {
-  alert("Havo nam.");
-} else {
-  alert("Noto‘g‘ri qiymat kiritildi.");
-}
-
-//   Task 10
-
-let tezlik = parseFloat(prompt("Internet tezligini kiriting (Mbps):"));
-
-if (tezlik < 50) {
-  alert("Internet sekin.");
-} else if (tezlik >= 50 && tezlik < 100) {
-  alert("Internet o'rtacha.");
-} else if (tezlik >= 100) {
-  alert("Internet juda tez.");
-} else {
-  alert("Noto'g'ri qiymat kiritildi.");
-}
-
+pizzaOrders.forEach(function(order) {
+  orderPizza(order, pizzaReadyCallback);
+});
