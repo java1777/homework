@@ -79,3 +79,52 @@
 //   "Genie" : 1000,
 //   "Joe" : 40
 // }, 5));
+
+// Task 5
+
+let students = [];
+
+let database = {
+  read() {
+    console.log(students);
+  },
+
+  create(user) {
+    let find = students.filter((val) => val.name == user.name);
+
+    if (find.length) {
+      console.log("Bu user avval qo'shilgan");
+      return 0;
+    }
+    students.push(user);
+    console.log("Student muofaqiyatli qo'shildi");
+  },
+
+  update(name, user) {
+    let findIndex = students.findIndex((val) => val.name == name);
+
+    if (findIndex == -1) {
+      console.log("Yangilanishi kerak bo'lgan user topilmadi");
+      return 0;
+    }
+
+    students[findIndex] = {
+      ...students[findIndex],
+      ...user,
+    };
+
+    console.log(`Student yangilandi: ${students[findIndex]}`);
+  },
+
+  findOne(name) {},
+
+  delete(name) {
+    students = students.filter((val) => val.name != name);
+    console.log("User o,chirildi");
+  },
+};
+
+database.create({name: "xamidullo", age: 33, id: 123, tolov: false});
+database.create({name: "Alisher", age: 33, id: 30, tolov: false});
+database.delete("Alisher");
+database.read();
