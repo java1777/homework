@@ -1,114 +1,81 @@
 // Task 1
 
-let son1 = parseFloat(prompt("Birinchi sonni kiriting:"));
-let son2 = parseFloat(prompt("Ikkinchi sonni kiriting:"));
+// function sortDrinkByPrice(drink) {
+//   return drinks.sort((a, b) => a.price - b.price);
+// }
 
-let yigindi = son1 + son2;
+// const drinks = [
+//   {name: "lemonade", price: 50},
+//   {name: "lime", price: 10}
+// ];
 
-alert("Ikki sonning yig'indisi: " + yigindi);
-
-
+// console.log(sortDrinkByPrice(drinks));
 
 // Task 2
 
-let ism = prompt("Ismingizni kiriting:");
-let familiya = prompt("Familiyangizni kiriting:");
+// function objectToArray(obj) {
+//   return Object.entries(obj);
+// }
 
-let toliqIsm = ism + " " + familiya;
+// console.log(objectToArray({
+//   D: 1,
+//   B: 2,
+//   C: 3 
+// }));
 
-alert(toliqIsm);
+// console.log(objectToArray({
+//   likes: 2,
+//   dislakes: 3,
+//   followers: 10
+// }));
 
 // Task 3
 
-let yosh = parseInt(prompt("Yoshingizni kiriting:"));
+// let names = [];
 
-if (yosh < 18) {
-  alert("Siz voyaga yetmagansiz.");
-} else {
-  alert("Siz voyaga yetgansiz.");
-}
+// let users = [
+//   { name: "John", email: "john@example.com" },
+//   { name: "Jason", email: "jason@example.com" },
+//   { name: "Jeremy", email: "jeremy@example.com" },
+//   { name: "Jacob", email: "jacob@example.com" }
+// ];
+
+// for(let { name } of users) {
+//   names.push(name);
+// }
+
+// console.log(names);
 
 // Task 4
 
-let son = parseInt(prompt("Iltimos, biror son kiriting:"));
+// function afterNYears(people, n) {
+//   let result = {};
+//   let yearsToAdd = Math.abs(n);
 
-if (son % 2 === 0) {
-  alert("Kiritilgan son juft.");
-} else {
-  alert("Kiritilgan son toq.");
-}
+//   for (let person in people) {
+//     result[person] = people[person] + yearsToAdd;
+//   }
 
-//   Task 5
+//   return result;
+// }
 
-let ball = parseInt(prompt("Imtihon boxosini kiriting (0-100 oralig'ida):"));
+// console.log(afterNYears({
+//   "Joel" : 32,
+//   "Fred" : 44,
+//   "Reginald" : 65,
+//   "Susan" : 33,
+//   "Julian" : 13
+// }, 1));
 
-if (ball >= 90 && ball <= 100) {
-  alert("A");
-} else if (ball >= 80 && ball <= 89) {
-  alert("B");
-} else if (ball >= 70 && ball <= 79) {
-  alert("C");
-} else if (ball >= 60 && ball <= 69) {
-  alert("D");
-} else if (ball >= 0 && ball < 60) {
-  alert("F");
-} else {
-  alert("Noto'g'ri boxo kiritildi. Iltimos, 0 dan 100 gacha bo'lgan son kiriting.");
-}
+// console.log(afterNYears({
+//   "Baby" : 2,
+//   "Child" : 8,
+//   "Teenager" : 15,
+//   "Adult" : 25,
+//   "Elderly" : 71
+// }, 19));
 
-//   Task 6
-
-let tomon = parseFloat(prompt("Kvadratning tomon uzunligini kiriting (sm):"));
-
-let perimetr = 4 * tomon;
-let yuza = tomon * tomon;
-
-alert("Perimetri: " + perimetr + " sm, Yuz: " + yuza + " sm²");
-
-//   Task 7
-
-let tomon = parseFloat(prompt("Kubning tomon uzunligini kiriting (sm):"));
-
-let hajm = tomon ** 3;
-
-alert("Hajm: " + hajm + " sm³");
-
-//   Task 8
-
-let celsius = parseFloat(prompt("Haroratni Celsiusda kiriting (°C):"));
-
-let fahrenheit = (celsius * 9/5) + 32;
-
-
-alert(celsius + "°C = " + fahrenheit + "°F");
-
-//   Task 9
-
-let namlik = parseFloat(prompt("Havoning namlik foizini kiriting (%):"));
-
-if (namlik < 30) {
-  alert("Havo juda quruq.");
-} else if (namlik > 30 && namlik < 60) {
-  alert("Havo qulay.");
-} else if (namlik === 30 || namlik === 60) {
-  alert("Havo qulay.");
-} else if (namlik > 60) {
-  alert("Havo nam.");
-} else {
-  alert("Noto‘g‘ri qiymat kiritildi.");
-}
-
-//   Task 10
-
-let tezlik = parseFloat(prompt("Internet tezligini kiriting (Mbps):"));
-
-if (tezlik < 50) {
-  alert("Internet sekin.");
-} else if (tezlik >= 50 && tezlik < 100) {
-  alert("Internet o'rtacha.");
-} else if (tezlik >= 100) {
-  alert("Internet juda tez.");
-} else {
-  alert("Noto'g'ri qiymat kiritildi.");
-}
-
+// console.log(afterNYears({
+//   "Genie" : 1000,
+//   "Joe" : 40
+// }, 5));
