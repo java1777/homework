@@ -1,114 +1,156 @@
-// Task 1
+// // Task 1
 
-let son1 = parseFloat(prompt("Birinchi sonni kiriting:"));
-let son2 = parseFloat(prompt("Ikkinchi sonni kiriting:"));
+// function tekshirishParol(parol) {
+//   let sabablar = [];
 
-let yigindi = son1 + son2;
+//   if (parol.length < 8) {
+//     sabablar.push("8 belgidan kam");
+//   }
 
-alert("Ikki sonning yig'indisi: " + yigindi);
+//   if (!/[A-Z]/.test(parol)) {
+//     sabablar.push("Katta harf yo'q");
+//   }
 
+//   if (!/[a-z]/.test(parol)) {
+//     sabablar.push("Kichik harf yo'q");
+//   }
 
+//   if (!/[0-9]/.test(parol)) {
+//     sabablar.push("Raqam yo'q");
+//   }
+
+//   if (sabablar.length === 0) {
+//     console.log("Kuchli parol");
+//   } else {
+//       console.log("Kuchsiz parol: " + sabablar.join(", "));
+//   }
+
+// }
+
+// tekshirishParol("Sal0mDuny0");
+// tekshirishParol("salom123");
+// tekshirishParol("SalDun");
 
 // Task 2
 
-let ism = prompt("Ismingizni kiriting:");
-let familiya = prompt("Familiyangizni kiriting:");
+// function hisoblashXaridni(narxInput, miqdorInput) {
+//   const narx = Number(narxInput);
+//   const miqdor = Number(miqdorInput);
 
-let toliqIsm = ism + " " + familiya;
+//   if (isNaN(narx) || isNaN(miqdor)) {
+//     console.log("Noto'g'ri ma'umot");
+//     return;
+//   }
 
-alert(toliqIsm);
+//   let umumiySumma = narx * miqdor;
+//   let yakuniySumma = umumiySumma;
+
+//   if (umumiySumma > 100000) {
+//     yakuniySumma = Math.floor(umumiySumma * 0.9);
+//   }
+
+//   console.log(yakuniySumma);
+// }
+
+// hisoblashXaridni("50000", "3");
+// hisoblashXaridni("60000", "2");
+// hisoblashXaridni("abc", "5");
 
 // Task 3
 
-let yosh = parseInt(prompt("Yoshingizni kiriting:"));
+// function raqamAlmashtirish(matn) {
+//   const natija = matn.replace(/[0-9]/g, "*");
+//   console.log(natija);
+// }
 
-if (yosh < 18) {
-  alert("Siz voyaga yetmagansiz.");
-} else {
-  alert("Siz voyaga yetgansiz.");
-}
+// raqamAlmashtirish("Salom123Dunyo");
+// raqamAlmashtirish("HelloWorld");
+// raqamAlmashtirish("2023-yil");
 
 // Task 4
 
-let son = parseInt(prompt("Iltimos, biror son kiriting:"));
+// function qisqartirish(matn) {
+//   const sozlar = matn.trim().split(" ");
 
-if (son % 2 === 0) {
-  alert("Kiritilgan son juft.");
-} else {
-  alert("Kiritilgan son toq.");
-}
+//   if (sozlar.length !== 2) {
+//     console.log("Noto'g'ri format: Ism va familiya kiritishingiz kerak");
+//     return;
+//   }
 
-//   Task 5
+//   const ism = sozlar[0];
+//   const familiya = sozlar[1];
+//   const qisqartma = ism.charAt(0).toUpperCase() + ". " + familiya;
 
-let ball = parseInt(prompt("Imtihon boxosini kiriting (0-100 oralig'ida):"));
+//   console.log(qisqartma);
+// }
 
-if (ball >= 90 && ball <= 100) {
-  alert("A");
-} else if (ball >= 80 && ball <= 89) {
-  alert("B");
-} else if (ball >= 70 && ball <= 79) {
-  alert("C");
-} else if (ball >= 60 && ball <= 69) {
-  alert("D");
-} else if (ball >= 0 && ball < 60) {
-  alert("F");
-} else {
-  alert("Noto'g'ri boxo kiritildi. Iltimos, 0 dan 100 gacha bo'lgan son kiriting.");
-}
+// qisqartirish("Ahmad Rahimov");
+// qisqartirish("Zilola Sobirova");
+// qisqartirish("Jasur");
 
-//   Task 6
+// Task 5
 
-let tomon = parseFloat(prompt("Kvadratning tomon uzunligini kiriting (sm):"));
+// function vaqtniAjratish(daqiqalarInput) {
+//   const daqiqa = Number(daqiqalarInput);
 
-let perimetr = 4 * tomon;
-let yuza = tomon * tomon;
+//   if (isNaN(daqiqalarInput) || daqiqa < 0) {
+//       console.log("Noto‘g‘ri ma‘lumot: Daqiqa manfiy bo‘lmasligi kerak");
+//       return;
+//   }
 
-alert("Perimetri: " + perimetr + " sm, Yuz: " + yuza + " sm²");
+//   const soat = Math.floor(daqiqa / 60);
+//   const qolganDaqiqa = daqiqa % 60;
 
-//   Task 7
+//   console.log(`${soat} soat ${qolganDaqiqa} daqiqa`);
+// }
 
-let tomon = parseFloat(prompt("Kubning tomon uzunligini kiriting (sm):"));
+// vaqtniAjratish("135");
+// vaqtniAjratish("45");
+// vaqtniAjratish("-10");
+// vaqtniAjratish("abc");
 
-let hajm = tomon ** 3;
+// Task 6
 
-alert("Hajm: " + hajm + " sm³");
+// function harfHisoblash(matn, harf) {
+//   if(harf.length !== 1) {
+//     console.log("Xato: Faqat bitta harf kiritish kerak");
+//     return;
+//   }
 
-//   Task 8
+//   const matnLower = matn.toLowerCase();
+//   const harfLower = harf.toLowerCase();
 
-let celsius = parseFloat(prompt("Haroratni Celsiusda kiriting (°C):"));
+//   let sanash = 0;
 
-let fahrenheit = (celsius * 9/5) + 32;
+//   for (let i = 0; i < matnLower.length; i++) {
+//     if (matnLower[i] === harfLower) {
+//       sanash++;
+//     }
+//   }
 
+//   console.log(sanash);
+// }
 
-alert(celsius + "°C = " + fahrenheit + "°F");
+// harfHisoblash("Salom Dunyo", "o");
+// harfHisoblash("Hello world", "L");
+// harfHisoblash("Test", "x");
+// harfHisoblash("JavaScript", "ja");
 
-//   Task 9
+// Task 7
 
-let namlik = parseFloat(prompt("Havoning namlik foizini kiriting (%):"));
+// function konvertatsiyaQilish(somInput) {
+//   const kurs = 12500;
+//   const som = Number(somInput);
 
-if (namlik < 30) {
-  alert("Havo juda quruq.");
-} else if (namlik > 30 && namlik < 60) {
-  alert("Havo qulay.");
-} else if (namlik === 30 || namlik === 60) {
-  alert("Havo qulay.");
-} else if (namlik > 60) {
-  alert("Havo nam.");
-} else {
-  alert("Noto‘g‘ri qiymat kiritildi.");
-}
+//   if (isNaN(som) || som < 0) {
+//     console.log("Noto'g'ri ma'lumot");
+//     return;
+//   }
 
-//   Task 10
+//   const dollar = (som / kurs).toFixed(2);
+//   console.log(`${dollar} USD`);
+// }
 
-let tezlik = parseFloat(prompt("Internet tezligini kiriting (Mbps):"));
-
-if (tezlik < 50) {
-  alert("Internet sekin.");
-} else if (tezlik >= 50 && tezlik < 100) {
-  alert("Internet o'rtacha.");
-} else if (tezlik >= 100) {
-  alert("Internet juda tez.");
-} else {
-  alert("Noto'g'ri qiymat kiritildi.");
-}
-
+// konvertatsiyaQilish("125000");
+// konvertatsiyaQilish("50000");
+// konvertatsiyaQilish("abc");
