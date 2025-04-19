@@ -1,114 +1,168 @@
 // Task 1
 
-let son1 = parseFloat(prompt("Birinchi sonni kiriting:"));
-let son2 = parseFloat(prompt("Ikkinchi sonni kiriting:"));
+// function numberSplit(number) {
+//   let firstHalf = Math.floor(number / 2);
+//   let secondHalf = number - firstHalf;
+//   return [firstHalf, secondHalf];
+// }
 
-let yigindi = son1 + son2;
-
-alert("Ikki sonning yig'indisi: " + yigindi);
-
-
+// console.log(numberSplit(4));
+// console.log(numberSplit(10));
+// console.log(numberSplit(11));
+// console.log(numberSplit(-9));
 
 // Task 2
 
-let ism = prompt("Ismingizni kiriting:");
-let familiya = prompt("Familiyangizni kiriting:");
+// function sumOfCub(arr) {
+//   let sum = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     sum += Math.pow(arr[i], 3);
+//   }
+//   return sum;
+// }
 
-let toliqIsm = ism + " " + familiya;
-
-alert(toliqIsm);
+// console.log(sumOfCub([1, 5, 9]));
+// console.log(sumOfCub([3, 4, 5]));
+// console.log(sumOfCub([2]));
+// console.log(sumOfCub([]));
 
 // Task 3
 
-let yosh = parseInt(prompt("Yoshingizni kiriting:"));
+// function minMax(arr) {
+//   const min = Math.min(...arr);
+//   const max = Math.max(...arr);
+//   return [min, max];
+// }
 
-if (yosh < 18) {
-  alert("Siz voyaga yetmagansiz.");
-} else {
-  alert("Siz voyaga yetgansiz.");
-}
+// console.log(minMax([1, 2, 3, 4, 5]));
+// console.log(minMax([2334454, 5]));
+// console.log(minMax([-10, 0, 10, 100]));
 
 // Task 4
 
-let son = parseInt(prompt("Iltimos, biror son kiriting:"));
+// function findPrimeNumber(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] % 2 !== 0) {
+//       return arr[i];
+//     }
+//   }
+//   return null;
+// }
 
-if (son % 2 === 0) {
-  alert("Kiritilgan son juft.");
-} else {
-  alert("Kiritilgan son toq.");
+// console.log(findPrimeNumber([4, 12, 42, 9, 12, 3]));
+// console.log(findPrimeNumber([123, 42, 93, 21, 11]));
+
+// Task 5
+
+// function func(arr) {
+//   let num1 = arr[0];
+//   let num2 = arr[1];
+//   let result = 0;
+
+//   for (let i = 0; i < Math.abs(num2); i++) {
+//     result += num1;
+//   }
+
+//   if ((num1 < 0 && num2 > 0) || (num1 > 0 && num2 < 0)) {
+//     result = -result;
+//   }
+
+//   return result;
+// }
+
+// console.log(func([3, 4]));
+// console.log(func([2, 4]));
+
+// Task 6
+
+// function returnVowel(arr) {
+//   const vowels = ['a', 'e', 'i', 'o', 'u'];
+//   let result = [];
+
+//   for (let word of arr) {
+//     let onlyVowels = '';
+//     for (let char of word) {
+//       if (vowels.includes(char.toLowerCase())) {
+//         onlyVowels += char.toLowerCase();
+//       }
+//     }
+//     result.push(onlyVowels);
+//   }
+
+//   return result;
+// }
+
+// console.log(returnVowel(["Assalomu alaykum", "salom", "Najot ta'lim"])); 
+// console.log(returnVowel(["Toshkent"]));
+
+// Task 7
+
+// function formatPhoneNumber(numbers) {
+//   if (numbers.length !== 10) return "Invalid input";
+
+//   const areaCode = numbers.slice(0, 3).join('');
+//   const firstPart = numbers.slice(3, 6).join('');
+//   const secondPart = numbers.slice(6).join('');
+
+//   return `(${areaCode}) ${firstPart}-${secondPart}`;
+// }
+
+// console.log(formatPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])); 
+// console.log(formatPhoneNumber([5, 1, 9, 5, 5, 5, 4, 4, 6, 8]));
+// console.log(formatPhoneNumber([3, 4, 5, 5, 0, 1, 2, 5, 2, 7]));
+
+// Task 8
+
+// function spelling(word) {
+//   let result = [];
+//   let current = "";
+
+//   for (let i = 0; i < word.length; i++) {
+//     current += word[i];
+//     result.push(current);
+//   }
+
+//   return result;
+// }
+
+// console.log(spelling("bee"));
+// console.log(spelling("happy"));
+// console.log(spelling("eagerly"));
+
+// Task 9
+
+// function chatroomStatus(users) {
+//   const count = users.length;
+
+//   if (count === 0) {
+//     return "no one online";
+//   } else if (count === 1) {
+//     return `${users[0]} online`;
+//   } else if (count === 2) {
+//     return `${users[0]} and ${users[1]} online`;
+//   } else {
+//     return `${users[0]}, ${users[1]} and ${count - 2} more online`;
+//   }
+// }
+
+// console.log(chatroomStatus([])); 
+// console.log(chatroomStatus(["paRIE_to"])); 
+// console.log(chatroomStatus(["s234f", "mailbox2"])); 
+// console.log(chatroomStatus(["pap_ier44", "townieBOY", "panda321", "motor_bike5", "sandwichmaker833", "violinist91"]));
+
+// Task 10
+
+function countTrue(arr) {
+  let count = 0;
+
+  for (let val of arr) {
+    if (val === true) {
+      count++;
+    }
+  }
+
+  return count;
 }
-
-//   Task 5
-
-let ball = parseInt(prompt("Imtihon boxosini kiriting (0-100 oralig'ida):"));
-
-if (ball >= 90 && ball <= 100) {
-  alert("A");
-} else if (ball >= 80 && ball <= 89) {
-  alert("B");
-} else if (ball >= 70 && ball <= 79) {
-  alert("C");
-} else if (ball >= 60 && ball <= 69) {
-  alert("D");
-} else if (ball >= 0 && ball < 60) {
-  alert("F");
-} else {
-  alert("Noto'g'ri boxo kiritildi. Iltimos, 0 dan 100 gacha bo'lgan son kiriting.");
-}
-
-//   Task 6
-
-let tomon = parseFloat(prompt("Kvadratning tomon uzunligini kiriting (sm):"));
-
-let perimetr = 4 * tomon;
-let yuza = tomon * tomon;
-
-alert("Perimetri: " + perimetr + " sm, Yuz: " + yuza + " sm²");
-
-//   Task 7
-
-let tomon = parseFloat(prompt("Kubning tomon uzunligini kiriting (sm):"));
-
-let hajm = tomon ** 3;
-
-alert("Hajm: " + hajm + " sm³");
-
-//   Task 8
-
-let celsius = parseFloat(prompt("Haroratni Celsiusda kiriting (°C):"));
-
-let fahrenheit = (celsius * 9/5) + 32;
-
-
-alert(celsius + "°C = " + fahrenheit + "°F");
-
-//   Task 9
-
-let namlik = parseFloat(prompt("Havoning namlik foizini kiriting (%):"));
-
-if (namlik < 30) {
-  alert("Havo juda quruq.");
-} else if (namlik > 30 && namlik < 60) {
-  alert("Havo qulay.");
-} else if (namlik === 30 || namlik === 60) {
-  alert("Havo qulay.");
-} else if (namlik > 60) {
-  alert("Havo nam.");
-} else {
-  alert("Noto‘g‘ri qiymat kiritildi.");
-}
-
-//   Task 10
-
-let tezlik = parseFloat(prompt("Internet tezligini kiriting (Mbps):"));
-
-if (tezlik < 50) {
-  alert("Internet sekin.");
-} else if (tezlik >= 50 && tezlik < 100) {
-  alert("Internet o'rtacha.");
-} else if (tezlik >= 100) {
-  alert("Internet juda tez.");
-} else {
-  alert("Noto'g'ri qiymat kiritildi.");
-}
-
+console.log(countTrue([true, false, false, true, false])); 
+console.log(countTrue([false, false, false, false])); 
+console.log(countTrue([])); 
