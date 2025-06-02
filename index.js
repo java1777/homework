@@ -1,114 +1,92 @@
-// Task 1
+// Misol - 1
 
-let son1 = parseFloat(prompt("Birinchi sonni kiriting:"));
-let son2 = parseFloat(prompt("Ikkinchi sonni kiriting:"));
+// function Car(brand, model, year) {
+//   this.brand = brand;
+//   this.model = model;
+//   this.year = year;
+// }
 
-let yigindi = son1 + son2;
-
-alert("Ikki sonning yig'indisi: " + yigindi);
-
-
-
-// Task 2
-
-let ism = prompt("Ismingizni kiriting:");
-let familiya = prompt("Familiyangizni kiriting:");
-
-let toliqIsm = ism + " " + familiya;
-
-alert(toliqIsm);
-
-// Task 3
-
-let yosh = parseInt(prompt("Yoshingizni kiriting:"));
-
-if (yosh < 18) {
-  alert("Siz voyaga yetmagansiz.");
-} else {
-  alert("Siz voyaga yetgansiz.");
-}
-
-// Task 4
-
-let son = parseInt(prompt("Iltimos, biror son kiriting:"));
-
-if (son % 2 === 0) {
-  alert("Kiritilgan son juft.");
-} else {
-  alert("Kiritilgan son toq.");
-}
-
-//   Task 5
-
-let ball = parseInt(prompt("Imtihon boxosini kiriting (0-100 oralig'ida):"));
-
-if (ball >= 90 && ball <= 100) {
-  alert("A");
-} else if (ball >= 80 && ball <= 89) {
-  alert("B");
-} else if (ball >= 70 && ball <= 79) {
-  alert("C");
-} else if (ball >= 60 && ball <= 69) {
-  alert("D");
-} else if (ball >= 0 && ball < 60) {
-  alert("F");
-} else {
-  alert("Noto'g'ri boxo kiritildi. Iltimos, 0 dan 100 gacha bo'lgan son kiriting.");
-}
-
-//   Task 6
-
-let tomon = parseFloat(prompt("Kvadratning tomon uzunligini kiriting (sm):"));
-
-let perimetr = 4 * tomon;
-let yuza = tomon * tomon;
-
-alert("Perimetri: " + perimetr + " sm, Yuz: " + yuza + " sm²");
-
-//   Task 7
-
-let tomon = parseFloat(prompt("Kubning tomon uzunligini kiriting (sm):"));
-
-let hajm = tomon ** 3;
-
-alert("Hajm: " + hajm + " sm³");
-
-//   Task 8
-
-let celsius = parseFloat(prompt("Haroratni Celsiusda kiriting (°C):"));
-
-let fahrenheit = (celsius * 9/5) + 32;
+// Car.prototype.getInfo = function() {
+//   return `Brand: ${this.brand}, Model: ${this.model}, Year: ${this.year}`;
+// };
 
 
-alert(celsius + "°C = " + fahrenheit + "°F");
+// const car1 = new Car("Toyota", "Camry", 2020);
+// const car2 = new Car("BMW", "X6", 2021);
+// const car3 = new Car("Nexia", "Dons", 1997);
+// const car4 = new Car("Maskvich", "GTR", 1990);
+// const car5 = new Car("Zaparoj", "Pat-pat", 1987);
 
-//   Task 9
 
-let namlik = parseFloat(prompt("Havoning namlik foizini kiriting (%):"));
+// console.log(car1.getInfo());
+// console.log(car2.getInfo());
+// console.log(car3.getInfo());
+// console.log(car4.getInfo());
+// console.log(car5.getInfo());
 
-if (namlik < 30) {
-  alert("Havo juda quruq.");
-} else if (namlik > 30 && namlik < 60) {
-  alert("Havo qulay.");
-} else if (namlik === 30 || namlik === 60) {
-  alert("Havo qulay.");
-} else if (namlik > 60) {
-  alert("Havo nam.");
-} else {
-  alert("Noto‘g‘ri qiymat kiritildi.");
-}
 
-//   Task 10
 
-let tezlik = parseFloat(prompt("Internet tezligini kiriting (Mbps):"));
+// Misol - 2
 
-if (tezlik < 50) {
-  alert("Internet sekin.");
-} else if (tezlik >= 50 && tezlik < 100) {
-  alert("Internet o'rtacha.");
-} else if (tezlik >= 100) {
-  alert("Internet juda tez.");
-} else {
-  alert("Noto'g'ri qiymat kiritildi.");
-}
+// const Animal = {
+//   makeSound: function() {
+//     console.log("Some sound");
+//   }
+// };
 
+// const Dog = {
+//   bark: function() {
+//     console.log("Woof!");
+//   }
+// };
+
+// Dog.__proto__ = Animal;
+
+// Dog.makeSound();
+// Dog.bark();
+
+// Misol - 3
+
+// Array.prototype.sum = function() {
+//   return this.reduce((acc, val) => acc + val, 0);
+// };
+
+// let number = [1, 2, 3, 4, 5];
+// console.log(number.sum());
+
+// Misol - 4
+
+// function Person(name) {
+//   this.name = name;
+// }
+
+// Person.prototype.greet = function() {
+//   console.log("Hello, my name is " + this.name);
+// };
+
+// function Employee(name, position) {
+//   Person.call(this,name);
+//   this.position = position;
+// }
+
+// Employee.prototype.__proto__ = Person.prototype;
+
+// let emp = new Employee("Javohir", "Developer");
+// emp.greet();
+
+// Misol = 5
+
+// const Car = {
+//   brand: "Rolls-Royce",
+//   speed: 100,
+//   drive: function() {
+//     console.log(this.brand + " is driving at " + this.speed + " km/h");
+//   }
+// };
+
+// const sportsCar = Object.create(Car);
+
+// sportsCar.brand = "BMW";
+// sportsCar.speed = 200;
+
+// sportsCar.drive();
