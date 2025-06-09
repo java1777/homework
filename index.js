@@ -1,114 +1,268 @@
-// Task 1
-
-let son1 = parseFloat(prompt("Birinchi sonni kiriting:"));
-let son2 = parseFloat(prompt("Ikkinchi sonni kiriting:"));
-
-let yigindi = son1 + son2;
-
-alert("Ikki sonning yig'indisi: " + yigindi);
+// Masala 1
 
 
+// class Student {
+//   constructor(name, age, grade){
+//     this.name = name;
+//     this.age = age;
+//     this.grade = grade;
+// }
 
-// Task 2
+// getInfo(){
+//   return `Name: ${this.name}, Age: ${this.age}, Grade: ${this.grade}`;
+//   }
+// }
 
-let ism = prompt("Ismingizni kiriting:");
-let familiya = prompt("Familiyangizni kiriting:");
+// const Student1 = new Student("Javohir", 27,97);
 
-let toliqIsm = ism + " " + familiya;
+// console.log(Student1.getInfo());
+// --------------------------------------------------------------------
 
-alert(toliqIsm);
-
-// Task 3
-
-let yosh = parseInt(prompt("Yoshingizni kiriting:"));
-
-if (yosh < 18) {
-  alert("Siz voyaga yetmagansiz.");
-} else {
-  alert("Siz voyaga yetgansiz.");
-}
-
-// Task 4
-
-let son = parseInt(prompt("Iltimos, biror son kiriting:"));
-
-if (son % 2 === 0) {
-  alert("Kiritilgan son juft.");
-} else {
-  alert("Kiritilgan son toq.");
-}
-
-//   Task 5
-
-let ball = parseInt(prompt("Imtihon boxosini kiriting (0-100 oralig'ida):"));
-
-if (ball >= 90 && ball <= 100) {
-  alert("A");
-} else if (ball >= 80 && ball <= 89) {
-  alert("B");
-} else if (ball >= 70 && ball <= 79) {
-  alert("C");
-} else if (ball >= 60 && ball <= 69) {
-  alert("D");
-} else if (ball >= 0 && ball < 60) {
-  alert("F");
-} else {
-  alert("Noto'g'ri boxo kiritildi. Iltimos, 0 dan 100 gacha bo'lgan son kiriting.");
-}
-
-//   Task 6
-
-let tomon = parseFloat(prompt("Kvadratning tomon uzunligini kiriting (sm):"));
-
-let perimetr = 4 * tomon;
-let yuza = tomon * tomon;
-
-alert("Perimetri: " + perimetr + " sm, Yuz: " + yuza + " sm²");
-
-//   Task 7
-
-let tomon = parseFloat(prompt("Kubning tomon uzunligini kiriting (sm):"));
-
-let hajm = tomon ** 3;
-
-alert("Hajm: " + hajm + " sm³");
-
-//   Task 8
-
-let celsius = parseFloat(prompt("Haroratni Celsiusda kiriting (°C):"));
-
-let fahrenheit = (celsius * 9/5) + 32;
+// Masala 2
 
 
-alert(celsius + "°C = " + fahrenheit + "°F");
+// class Car {
+//   constructor(brand, model, year) {
+//     this.brand = brand;
+//     this.model = model;
+//     this.year = year;
+//   }
 
-//   Task 9
+//   getCarAge() {
+//     const currentYear = new Date().getFullYear();
+//     return currentYear - this.year;
+//   }
 
-let namlik = parseFloat(prompt("Havoning namlik foizini kiriting (%):"));
+//   isOldCar() {
+//     return this.getCarAge() > 10 ? "Eski mashina" : "Yangi mashina";
+//   }
+// }
 
-if (namlik < 30) {
-  alert("Havo juda quruq.");
-} else if (namlik > 30 && namlik < 60) {
-  alert("Havo qulay.");
-} else if (namlik === 30 || namlik === 60) {
-  alert("Havo qulay.");
-} else if (namlik > 60) {
-  alert("Havo nam.");
-} else {
-  alert("Noto‘g‘ri qiymat kiritildi.");
-}
+// const car1 = new Car("Chevrolet", "Nexia", 2012);
 
-//   Task 10
+// console.log(`Mashina yoshi: ${car1.getCarAge()} yil`);
+// console.log(car1.isOldCar());
 
-let tezlik = parseFloat(prompt("Internet tezligini kiriting (Mbps):"));
+// ------------------------------------------------------------------------------
 
-if (tezlik < 50) {
-  alert("Internet sekin.");
-} else if (tezlik >= 50 && tezlik < 100) {
-  alert("Internet o'rtacha.");
-} else if (tezlik >= 100) {
-  alert("Internet juda tez.");
-} else {
-  alert("Noto'g'ri qiymat kiritildi.");
-}
+// Masala 3
 
+// class BankAccount {
+//   constructor(owner, balance = 0) {
+//     this.owner = owner;
+//     this.#balance = 0;
+//     this.balance = balance; // setter orqali o'rnatiladi
+//   }
+
+//   #balance;
+
+//   get balance() {
+//     return this.#balance;
+//   }
+
+//   set balance(value) {
+//     if (value >= 0) {
+//       this.#balance = value;
+//     } else {
+//       console.log("Balans manfiy bo'lishi mumkin emas!");
+//     }
+//   }
+
+//   deposit(amount) {
+//     if (amount > 0) {
+//       this.#balance += amount;
+//       console.log(`${amount} so'm qo‘shildi. Yangi balans: ${this.#balance} so'm`);
+//     } else {
+//       console.log("Faqat musbat miqdor kiritish mumkin.");
+//     }
+//   }
+
+//   withdraw(amount) {
+//     if (amount <= this.#balance) {
+//       this.#balance -= amount;
+//       console.log(`${amount} so'm yechildi. Yangi balans: ${this.#balance} so'm`);
+//     } else {
+//       console.log("Yetarli mablag' yo'q");
+//     }
+//   }
+
+//   getBalance() {
+//     return this.#balance;
+//   }
+// }
+
+// const account = new BankAccount("Javohir", 500);
+
+// console.log("Hisob egasi:", account.owner);
+// console.log("Boshlang'ich balans:", account.balance);
+
+// account.deposit(200);
+// account.withdraw(100);
+
+// console.log("Joriy balans:", account.getBalance());
+
+// account.balance = -100;
+// console.log("Umumiy balans:", account.balance);
+
+// ---------------------------------------------------------------------------------
+
+// Masala 4
+
+
+// class Animal {
+//   constructor(name, sound) {
+//     this.name = name;
+//     this.sound = sound;
+//   }
+
+//   makeSound() {
+//     console.log(`${this.name} says: ${this.sound}`);
+//   }
+// }
+
+// class Dog extends Animal {
+//   constructor(name) {
+//     super(name, "Woof!");
+//   }
+// }
+
+// class Cat extends Animal {
+//   constructor(name) {
+//     super(name, "Meow!");
+//   }
+// }
+
+// const myDog = new Dog("Bobik");
+// const myCat = new Cat("Sariqvoy");
+
+// myDog.makeSound();
+// myCat.makeSound();
+
+// ---------------------------------------------------------------------------------------------
+
+// Masala 5
+
+
+// class Technology {
+//   constructor(brand, price) {
+//     this.brand = brand;
+//     this.price = price;
+//   }
+
+//   getInfo() {
+//     return `Brand: ${this.brand}, Price: ${this.price} USD`;
+//   }
+// }
+
+// class Computer extends Technology {
+//   constructor(brand, price, processor) {
+//     super(brand, price);
+//     this.processor = processor;
+//   }
+
+//   getInfo() {
+//     return `${super.getInfo()}, Processor: ${this.processor}`;
+//   }
+// }
+
+// class Laptop extends Computer {
+//   constructor(brand, price, processor, batteryLife) {
+//     super(brand, price, processor);
+//     this.batteryLife = batteryLife;
+//   }
+
+//   getInfo() {
+//     return `${super.getInfo()}, Battery Life: ${this.batteryLife} hours`;
+//   }
+// }
+
+// const tech = new Technology("SpaceX", 300);
+// console.log(tech.getInfo());
+
+// const comp = new Computer("Nitro", 800, "Intel i9");
+// console.log(comp.getInfo());
+
+// const laptop = new Laptop("Apple", 1500, "M2", 12);
+// console.log(laptop.getInfo());
+
+// ----------------------------------------------------------------------------------------------------------
+
+// Masala 6
+
+
+// class Vehicle {
+//   constructor(name, speed) {
+//     this.name = name;
+//     this.speed = speed;
+//   }
+
+//   move() {
+//     console.log(`${this.name} harakatlanmoqda.`);
+//   }
+// }
+
+// class Car extends Vehicle {
+//   move() {
+//     console.log(`${this.name} yo‘lda harakatlanmoqda.`);
+//   }
+// }
+
+// class Boat extends Vehicle {
+//   move() {
+//     console.log(`${this.name} suvda harakatlanmoqda.`);
+//   }
+// }
+
+// class Airplane extends Vehicle {
+//   move() {
+//     console.log(`${this.name} havoda uchmoqda.`);
+//   }
+// }
+
+// const genericVehicle = new Vehicle("Transport", 50);
+// genericVehicle.move();  
+
+// const car = new Car("BMW", 120);
+// car.move();  
+
+// const boat = new Boat("Titanic", 40);
+// boat.move();  
+
+// const airplane = new Airplane("Boeing 747", 900);
+// airplane.move();  
+
+// -----------------------------------------------------------------------------------------
+
+// Masala 7
+
+// class Calculator {
+//   divide(a, b) {
+//     try {
+//       if (b === 0) {
+//         throw new Error("Nolga bo‘lish mumkin emas");
+//       }
+//       return a / b;
+//     } catch (error) {
+//       return `Xatolik: ${error.message}`;
+//     }
+//   }
+
+//   sqrt(n) {
+//     try {
+//       if (n < 0) {
+//         throw new Error("Manfiy son ildizi mavjud emas");
+//       }
+//       return Math.sqrt(n);
+//     } catch (error) {
+//       return `Xatolik: ${error.message}`;
+//     }
+//   }
+// }
+
+// const calc = new Calculator();
+
+// console.log(calc.divide(10, 2));
+// console.log(calc.divide(10, 0));
+
+// console.log(calc.sqrt(25));
+// console.log(calc.sqrt(-9));
