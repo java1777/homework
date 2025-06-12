@@ -5,11 +5,8 @@ body {
     padding: 20px;
 }
 
-.containerBox {
-    margin-top: 30px;
-}
-
 .box {
+    margin-top: 30px;
     margin-left: 20px;
     display: inline-table;
     height: 100px;
@@ -17,7 +14,7 @@ body {
     width: 300px;
     background-color: rgb(30, 255, 0);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
 }
