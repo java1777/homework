@@ -1,6 +1,5 @@
 const url = 'https://684a7ac1165d05c5d358e0ab.mockapi.io/products';
 
-
 async function getProduct() {
   try {
     const res = await fetch(url);
@@ -13,36 +12,69 @@ async function getProduct() {
 
 async function getproductById(id2) {
   try {
-    const res = await fetch(url);
+    const res = await fetch(`${url}/${id2}`);
     const data = await res.json();
-    for(let item of data){
-      if(item.id==id2){
-        console.log(item);
-      }
-    }
+    console.log(data);
   } catch (error) {
-    console.log('Error on fetching post by ID', error);
+    console.log('Error on fetching product by ID', error);
   }
 }
+
 async function addProduct() {
   try {
-    const newProducts = {
+    const newProduct = {
       createdAt: Date.now(),
       name: 'apple222',
       price: 100,
-    }
+    };
     const res = await fetch(url, {
       method: 'POST',
       headers: {
         "Content-type": "application/json"
       },
-      body: JSON.stringify(newProducts)
+      body: JSON.stringify(newProduct)
     });
     await getProduct();
   } catch (error) {
-    console.log('Error on add product', error);
+    console.log('Error on adding product', error);
   }
 }
-// await getProduct()
-// await getproductById(3)
-await addProduct()
+
+async function updateProduct(id, updatedData) {
+  try {
+    const res = await fetch(`${url}/${id}`, {
+      method: 'PUT',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(updatedData)
+    });
+    const updatedProduct = await res.json();
+    console.log('Product updated:', updatedProduct);
+    await getProduct();
+  } catch (error) {
+    console.log('Error on updating product', error);
+  }
+}
+
+async function removeProduct(id) {
+  try {
+    const res = await fetch(`${url}/${id}`, {
+      method: 'DELETE'
+    });
+    if (res.ok) {
+      console.log(`Product with ID ${id} removed.`);
+      await getProduct();
+    } else {
+      console.log(`Failed to remove product with ID ${id}`);
+    }
+  } catch (error) {
+    console.log('Error on deleting product', error);
+  }
+}
+
+await getProduct();
+await getproductById(3);
+await addProduct();
+await updateProduct(1, { name: "Updated Apple", price: 120 });
+await removeProduct(1);
