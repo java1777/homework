@@ -1,27 +1,46 @@
-const BASE_URL = 'https://684a7ac1165d05c5d358e0ab.mockapi.io/library';
-const AUTHORS_URL = `${BASE_URL}/library`;
-const BOOKS_URL = `${BASE_URL}/library`;
+const BOOKS_URL = 'https://684a7ac1165d05c5d358e0ab.mockapi.io/books';
+const LIBRARY = 'https://684a7ac1165d05c5d358e0ab.mockapi.io/library'
 
 class Book {
-  static async create(title, description, genre) {
-    const res = await fetch(BOOKS_URL, {
+async checkUsername(title){
+    const res=await fetch('https://684a7ac1165d05c5d358e0ab.mockapi.io/books').then(res=>res.json());
+    for(let item of res){
+      if(item.title==title){
+        return true
+      }
+    }
+    return false
+  }
+async create(title, description, genre) {
+    const check=await this.checkUsername(title)
+    if(!check){
+      const res = await fetch(BOOKS_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title, description, genre }),
     });
-    const data = await res.json();
-    console.log(`Kitob yaratildi: ${data.title}`);
-    return data;
+    console.log(`Kitob yaratildi: ${title}`)
+    }else{
+      console.log(`${title} bunday kitob bor!`);
+      return
+    }
+    
+  }
+async getAllBooks() {
+    const res = await fetch(BOOKS_URL).then(res=>res.json());
+    for(let item of res){
+      console.log(item);
+    }
   }
 
-  static async getAllBooks() {
+async getById(id) {
     const res = await fetch(BOOKS_URL);
-    return await res.json();
-  }
-
-  static async getById(id) {
-    const res = await fetch(`${BOOKS_URL}/${id}`);
-    return await res.json();
+    const data=await res.json();
+    for(let item of data){
+      if(item.id==id){
+        console.log(item);
+      }
+    }
   }
 }
 
@@ -79,32 +98,19 @@ class Author {
   }
 
   async getBooks() {
-    if (!this.books.length) {
-      console.log("Muallifda hali kitoblar yo‘q.");
-      return;
-    }
 
-    console.log(` ${this.name} kitoblari:`);
-    for (const id of this.books) {
-      try {
-        const book = await Book.getById(id);
-        console.log(`- ${book.title} | ${book.genre}`);
-      } catch (err) {
-        console.log(`Kitob ID ${id} topilmadi.`);
-      }
-    }
   }
 }
 
 (async () => {
-  const author = new Author("Stiv Jobs");
-  await author.createUser();
+  const books=new Book()
+  const author = new Author();
 
-  const book1 = await Book.create("Stiv Jobs", "Drama", "Drama");
-  const book2 = await Book.create("Jonni Dep", "Fantastik Comedy", "Comedy");
+  // books.create("Harry Potter", "Fantasy", "Drama");
+  // books.create("Jonni Dep", "Fantastik Comedy", "Comedy")
+  // await books.getAllBooks()
+  // await books.getById(2)
 
-  await author.addBook(book1.id);
-  await author.addBook(book2.id);
-
-  await author.getBooks();
+  // await author.getBooks();
+  
 })();
