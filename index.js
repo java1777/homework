@@ -1,114 +1,110 @@
-// Task 1
+const BASE_URL = 'https://684a7ac1165d05c5d358e0ab.mockapi.io/library';
+const AUTHORS_URL = `${BASE_URL}/library`;
+const BOOKS_URL = `${BASE_URL}/library`;
 
-let son1 = parseFloat(prompt("Birinchi sonni kiriting:"));
-let son2 = parseFloat(prompt("Ikkinchi sonni kiriting:"));
+class Book {
+  static async create(title, description, genre) {
+    const res = await fetch(BOOKS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title, description, genre }),
+    });
+    const data = await res.json();
+    console.log(`Kitob yaratildi: ${data.title}`);
+    return data;
+  }
 
-let yigindi = son1 + son2;
+  static async getAllBooks() {
+    const res = await fetch(BOOKS_URL);
+    return await res.json();
+  }
 
-alert("Ikki sonning yig'indisi: " + yigindi);
-
-
-
-// Task 2
-
-let ism = prompt("Ismingizni kiriting:");
-let familiya = prompt("Familiyangizni kiriting:");
-
-let toliqIsm = ism + " " + familiya;
-
-alert(toliqIsm);
-
-// Task 3
-
-let yosh = parseInt(prompt("Yoshingizni kiriting:"));
-
-if (yosh < 18) {
-  alert("Siz voyaga yetmagansiz.");
-} else {
-  alert("Siz voyaga yetgansiz.");
+  static async getById(id) {
+    const res = await fetch(`${BOOKS_URL}/${id}`);
+    return await res.json();
+  }
 }
 
-// Task 4
+class Author {
+  constructor(name) {
+    this.name = name;
+    this.id = null;
+    this.books = [];
+  }
 
-let son = parseInt(prompt("Iltimos, biror son kiriting:"));
+  async createUser() {
+    const res = await fetch(AUTHORS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: this.name, books: [] }),
+    });
 
-if (son % 2 === 0) {
-  alert("Kiritilgan son juft.");
-} else {
-  alert("Kiritilgan son toq.");
+    const data = await res.json();
+    this.id = data.id;
+    this.books = data.books;
+    console.log(`Muallif yaratildi: ${this.name} (ID: ${this.id})`);
+  }
+
+  async addBook(book_id) {
+    if (!this.id) {
+      console.error("Muallif hali yaratilmagan.");
+      return;
+    }
+
+    try {
+      const book = await Book.getById(book_id);
+      if (!book || !book.id) {
+        console.error("Kitob topilmadi!");
+        return;
+      }
+
+      if (this.books.includes(book_id)) {
+        console.log("Bu kitob allaqachon muallifda mavjud.");
+        return;
+      }
+
+      this.books.push(book_id);
+
+      await fetch(`${AUTHORS_URL}/${this.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: this.name, books: this.books }),
+      });
+
+      console.log(`Kitob muallifga qo‘shildi: ${book.title}`);
+
+    } catch (err) {
+      console.error('Xatolik:', err);
+    }
+  }
+
+  async getBooks() {
+    if (!this.books.length) {
+      console.log("Muallifda hali kitoblar yo‘q.");
+      return;
+    }
+
+    console.log(` ${this.name} kitoblari:`);
+    for (const id of this.books) {
+      try {
+        const book = await Book.getById(id);
+        console.log(`- ${book.title} | ${book.genre}`);
+      } catch (err) {
+        console.log(`Kitob ID ${id} topilmadi.`);
+      }
+    }
+  }
 }
 
-//   Task 5
+(async () => {
+  const author = new Author("Stiv Jobs");
+  await author.createUser();
 
-let ball = parseInt(prompt("Imtihon boxosini kiriting (0-100 oralig'ida):"));
+  const book1 = await Book.create("Stiv Jobs", "Drama", "Drama");
+  const book2 = await Book.create("Jonni Dep", "Fantastik Comedy", "Comedy");
 
-if (ball >= 90 && ball <= 100) {
-  alert("A");
-} else if (ball >= 80 && ball <= 89) {
-  alert("B");
-} else if (ball >= 70 && ball <= 79) {
-  alert("C");
-} else if (ball >= 60 && ball <= 69) {
-  alert("D");
-} else if (ball >= 0 && ball < 60) {
-  alert("F");
-} else {
-  alert("Noto'g'ri boxo kiritildi. Iltimos, 0 dan 100 gacha bo'lgan son kiriting.");
-}
+  await author.addBook(book1.id);
+  await author.addBook(book2.id);
 
-//   Task 6
-
-let tomon = parseFloat(prompt("Kvadratning tomon uzunligini kiriting (sm):"));
-
-let perimetr = 4 * tomon;
-let yuza = tomon * tomon;
-
-alert("Perimetri: " + perimetr + " sm, Yuz: " + yuza + " sm²");
-
-//   Task 7
-
-let tomon = parseFloat(prompt("Kubning tomon uzunligini kiriting (sm):"));
-
-let hajm = tomon ** 3;
-
-alert("Hajm: " + hajm + " sm³");
-
-//   Task 8
-
-let celsius = parseFloat(prompt("Haroratni Celsiusda kiriting (°C):"));
-
-let fahrenheit = (celsius * 9/5) + 32;
-
-
-alert(celsius + "°C = " + fahrenheit + "°F");
-
-//   Task 9
-
-let namlik = parseFloat(prompt("Havoning namlik foizini kiriting (%):"));
-
-if (namlik < 30) {
-  alert("Havo juda quruq.");
-} else if (namlik > 30 && namlik < 60) {
-  alert("Havo qulay.");
-} else if (namlik === 30 || namlik === 60) {
-  alert("Havo qulay.");
-} else if (namlik > 60) {
-  alert("Havo nam.");
-} else {
-  alert("Noto‘g‘ri qiymat kiritildi.");
-}
-
-//   Task 10
-
-let tezlik = parseFloat(prompt("Internet tezligini kiriting (Mbps):"));
-
-if (tezlik < 50) {
-  alert("Internet sekin.");
-} else if (tezlik >= 50 && tezlik < 100) {
-  alert("Internet o'rtacha.");
-} else if (tezlik >= 100) {
-  alert("Internet juda tez.");
-} else {
-  alert("Noto'g'ri qiymat kiritildi.");
-}
-
+  await author.getBooks();
+})();
