@@ -6,8 +6,8 @@ body {
 }
 #productWrapper {
     display: inline-block;
-    margin-right: 100px;
-    margin-left: 100px;
+    margin-right: 15%;
+    margin-left: 25%;
 }
 .product-card {
     display: inline-block;
