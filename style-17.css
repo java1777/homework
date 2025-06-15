@@ -4,7 +4,9 @@ body {
     padding: 20px;
     background-color: #f4f4f4;
 }
-.container {
+#cproductWrappe {
+    background-color: #0056b3;
+    display:inline-block ;
     max-width: 1200px;
     margin: 0 auto;
 }
