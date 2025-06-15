@@ -25,8 +25,8 @@ function displayProducts(products) {
     productCard.innerHTML = `
             <img src="${product.thumbnail}" alt="${product.title}">
             <h3>${product.title}</h3>
-            <p>Price: $${product.price}</p>
-            <p>${product.description}</p>
+            <p id='price1'>Price: $${product.price}</p>
+            <p>About: ${product.description.slice(0,50)}.</p>
         `;
     productWrapper.appendChild(productCard);
   });
