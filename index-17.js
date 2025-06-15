@@ -1,7 +1,7 @@
 const productWrapper = document.getElementById('productWrapper');
 const loadMoreBtn = document.getElementById('loadMoreBtn');
 let allProducts = [];
-const initialDisplayCount = 6;
+const initialDisplayCount = 4;
 let displayedCount = initialDisplayCount;
 
 async function fetchProducts() {
