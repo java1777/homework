@@ -5,37 +5,37 @@ const initialDisplayCount = 6;
 let displayedCount = initialDisplayCount;
 
 async function fetchProducts() {
-    try {
-        const response = await fetch('https://dummyjson.com/products');
-        const data = await response.json();
-        allProducts = data.products;
-        displayProducts(allProducts.slice(0, initialDisplayCount));
-        if (allProducts.length <= initialDisplayCount) {
-            loadMoreBtn.style.display = 'none';
-        }
-    } catch (error) {
-        console.error('Error fetching products:', error);
+  try {
+    const response = await fetch('https://dummyjson.com/products');
+    const data = await response.json();
+    allProducts = data.products;
+    displayProducts(allProducts.slice(0, initialDisplayCount));
+    if (allProducts.length <= initialDisplayCount) {
+      loadMoreBtn.style.display = 'none';
     }
+  } catch (error) {
+    console.error('Error fetching products:', error);
+  }
 }
 
 function displayProducts(products) {
-    products.forEach(product => {
-        const productCard = document.createElement('div');
-        productCard.className = 'product-card';
-        productCard.innerHTML = `
-            <img src="$./BMW X6.jpg">
+  products.forEach(product => {
+    const productCard = document.createElement('div');
+    productCard.className = 'product-card';
+    productCard.innerHTML = `
+            <img src="${product.thumbnail}" alt="${product.title}">
             <h3>${product.title}</h3>
             <p>Price: $${product.price}</p>
             <p>${product.description}</p>
         `;
-        productWrapper.appendChild(productCard);
-    });
+    productWrapper.appendChild(productCard);
+  });
 }
 
 loadMoreBtn.addEventListener('click', () => {
-    displayProducts(allProducts.slice(displayedCount));
-    displayedCount = allProducts.length;
-    loadMoreBtn.style.display = 'none';
+  displayProducts(allProducts.slice(displayedCount));
+  displayedCount = allProducts.length;
+  loadMoreBtn.style.display = 'none';
 });
 
 fetchProducts();
