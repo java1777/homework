@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Translator App</title>
+    <link rel="stylesheet" href="style-18.css">
 </head>
+
 <body>
-    <script src="./index-18.html"></script>
+    <div class="container">
+        <h1>Translator App</h1>
+        <div class="translator">
+            <div class="input-section">
+                <textarea id="inputText" placeholder="Tezda matn kiriting"></textarea>
+                <select id="sourceLang">
+                    <option value="en">English</option>
+                    <option value="ru">Russian</option>
+                    <option value="uz">Uzbek</option>
+                </select>
+            </div>
+            <button id="translateBtn">Translate</button>
+            <div class="output-section">
+                <textarea id="outputText" placeholder="Tarjima shotta chiqadi" readonly></textarea>
+                <select id="targetLang">
+                    <option value="en">English</option>
+                    <option value="ru">Russian</option>
+                    <option value="uz">Uzbek</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <script src="/index-18.js"></script>
 </body>
+
 </html>
