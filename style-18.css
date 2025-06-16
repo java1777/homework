@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: rgb(86, 241, 86);
+    background-color: rgba(142, 207, 142, 0.226);
 }
 .container {
     max-width: 800px;
