@@ -21,7 +21,7 @@ async function translateText(text, firtstLang, secondLang) {
     return res.responseData.translatedText
   } catch (error) {
     const res = await fetch(URL).then(res => res.json())
-    return `Serverda xatolik :(`
+    return `Serverda xatolik :( ${res}`
   }
 <<<<<<< HEAD
 }
