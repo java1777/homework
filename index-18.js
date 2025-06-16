@@ -25,13 +25,15 @@ async function translateText(text, firtstLang, secondLang) {
   }
 }
 async function engTrans() {
-  // alert('salom')
   const input = document.getElementById('inputText').value;
   const output = document.getElementById('outputText')
-  const english = await translateText(input, 'en', 'uz').then(res => res.json())
+  const english = await translateText(input, 'en', 'uz');
   output.value=english
 }
 
 async function uzbTrans() {
-  const uzbek=await translateText()
+  const input = document.getElementById('inputText').value;
+  const output = document.getElementById('outputText')
+  const uzbek = await translateText(input,'uz','en');
+  output.value = uzbek
 }
