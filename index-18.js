@@ -23,7 +23,6 @@ async function translateText(text, firtstLang, secondLang) {
     const res = await fetch(URL).then(res => res.json())
     return `Serverda xatolik :( ${res}`
   }
-<<<<<<< HEAD
 }
 async function engTrans() {
   const input = document.getElementById('inputText').value;
@@ -35,11 +34,9 @@ async function engTrans() {
 async function uzbTrans() {
   const input = document.getElementById('inputText').value;
   const output = document.getElementById('outputText')
-  const uzbek = await translateText(input, 'uz', 'en');
-  output.value = uzbek
-=======
->>>>>>> 75aad92e72faf2291e35d11006c7e80abd3b519d
+  const uzbek = await translateText(input, 'uz', 'en');519d
 }
+
 async function engTrans() {
   const input = document.getElementById('inputText').value;
   const output = document.getElementById('outputText')
