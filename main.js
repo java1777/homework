@@ -11,4 +11,4 @@ import { Person } from './person.js';
     await sleep(delay);
 
     console.log(person.getInfo());
-})();``
+})();
